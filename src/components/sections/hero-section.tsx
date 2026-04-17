@@ -1,9 +1,11 @@
+import Image from "next/image";
 import { Container } from "@/components/layout/container";
 import { TrackedLink } from "@/components/tracking/tracked-link";
 import { InstagramIcon, MapPinIcon, PhoneIcon } from "@/components/ui/icons";
 import { siteConfig } from "@/lib/site-config";
 
 const callHref = siteConfig.phone.href ?? "#infos";
+const storefrontImageUrl = "/images/parameen-facade.jpg";
 
 export function HeroSection() {
   return (
@@ -82,20 +84,29 @@ export function HeroSection() {
             </p>
           </div>
 
-          <div className="rounded-lg border-2 border-[var(--ink)] bg-[var(--ink)] p-3 shadow-[10px_10px_0_var(--ochre)]">
-            <div className="rounded-md border border-white/15 bg-[var(--surface)] p-5">
+          <div className="relative flex min-h-[26rem] items-end overflow-hidden rounded-lg border-2 border-[var(--ink)] bg-[var(--ink)] p-4 shadow-[10px_10px_0_var(--ochre)] sm:min-h-[30rem] lg:min-h-[32rem]">
+            <Image
+              src={storefrontImageUrl}
+              alt=""
+              fill
+              priority
+              sizes="(min-width: 1024px) 520px, 100vw"
+              className="object-cover opacity-70"
+            />
+            <div className="absolute inset-0 bg-[rgba(23,21,18,0.18)]" />
+            <div className="relative max-w-sm rounded-md border border-white/25 bg-[rgba(255,250,241,0.88)] p-4 shadow-sm backdrop-blur-[2px] sm:p-5">
               <p className="text-sm font-bold uppercase tracking-[0.14em] text-[var(--brand)]">
                 Adresse et téléphone
               </p>
-              <p className="mt-3 text-2xl font-black leading-8 text-[var(--ink)]">
+              <p className="mt-3 text-xl font-black leading-7 text-[var(--ink)] sm:text-2xl sm:leading-8">
                 {siteConfig.address.street}
                 <br />
                 {siteConfig.address.postalCode} {siteConfig.address.city}
               </p>
-              <p className="mt-5 text-3xl font-black text-[var(--brand)]">
+              <p className="mt-4 text-2xl font-black text-[var(--brand)] sm:text-3xl">
                 {siteConfig.phone.label}
               </p>
-              <p className="mt-4 text-base leading-7 text-[var(--muted)]">
+              <p className="mt-3 text-sm leading-6 text-[var(--muted)] sm:text-base sm:leading-7">
                 Un commerce de quartier à Paramé, pensé pour commander par
                 téléphone et repartir avec son kebab.
               </p>

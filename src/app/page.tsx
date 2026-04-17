@@ -7,14 +7,12 @@ import { HeroSection } from "@/components/sections/hero-section";
 import { InfoSection } from "@/components/sections/info-section";
 import { MenuSection } from "@/components/sections/menu-section";
 import { OrderProcessSection } from "@/components/sections/order-process-section";
-import { StorefrontSection } from "@/components/sections/storefront-section";
 
 export default function Home() {
   return (
     <>
       <main>
         <HeroSection />
-        <StorefrontSection />
         <AboutSection />
         <OrderProcessSection />
         <MenuSection />
